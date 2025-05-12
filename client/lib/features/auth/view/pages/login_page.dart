@@ -1,4 +1,4 @@
-import 'package:client/core/theme/app_pallete.dart';
+import 'package:client/core/theme/app_palette.dart';
 import 'package:client/features/auth/view/widgets/auth_gradient_button.dart';
 import 'package:client/features/auth/view/widgets/custom_field.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextSpan(
                     text: 'Sign Up',
                     style: TextStyle(
-                      color: Pallete.gradient2,
+                      color: Palette.gradient2,
                       fontWeight: FontWeight.bold,
                     )
                   )
