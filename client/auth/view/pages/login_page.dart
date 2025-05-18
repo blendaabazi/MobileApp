@@ -55,10 +55,31 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 20),
               AuthGradientButton(
                 buttonText: "Sign in",
-                onTap:(){},
+                onTap:() async {
+                  await AuthRemoteRepository().login(
+                    email: emailController.text,
+                    password: passwordController.text,
+                  );
+
+                  final val = switch(res) {
+                    Left(value: final l) => l,
+                    Right(value: final r) => r,
+                  };
+                  print(va);
+                },
               ),
               const SizedBox(height: 20),
-              RichText(text:TextSpan(
+              GestureDetector(
+                   onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                        );
+                   },
+                child: RichText(
+                text:TextSpan(
                 text: 'Dont have an account? ',
                 style: Theme.of(context).textTheme.titleMedium,
                 children: const [
@@ -67,10 +88,13 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       color: Palette.gradient2,
                       fontWeight: FontWeight.bold,
-                    )
-                  )
-                ]
-              ) )
+                    ),
+                  
+                  ),
+                ],
+              ) ,
+              ),
+              ),
             ],
           ),
         ),
